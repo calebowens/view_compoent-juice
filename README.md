@@ -1,8 +1,6 @@
 # ViewComponent::Juice
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/view_component/juice`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The goal of this gem is to enable writing of interactive view components by levereging the power of turbo, removing the need to write JS.
 
 ## Installation
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/view_component-juice.
+Bug reports and pull requests are welcome on GitHub at https://github.com/calebowens/view_component-juice.
 
 ## License
 
