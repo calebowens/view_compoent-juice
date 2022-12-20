@@ -9,15 +9,15 @@ Gem::Specification.new do |spec|
   spec.email = ["hello@calebowens.com"]
 
   spec.summary = "Adding an Elm inspired turbo interface into view components"
-  spec.homepage = "https://github.com/calebowens/view_compoent-juice"
+  spec.homepage = "https://github.com/calebowens/view_component-juice"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/calebowens/view_compoent-juice"
-  spec.metadata["changelog_uri"] = "https://github.com/calebowens/view_compoent-juice"
+  spec.metadata["source_code_uri"] = "https://github.com/calebowens/view_component-juice"
+  spec.metadata["changelog_uri"] = "https://github.com/calebowens/view_component-juice"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
