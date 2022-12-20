@@ -20,7 +20,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Currently a child messaging a parent and a component messaging itself works as expected, but due to the way context is maintained by passing a query parameter a child couldn't message another child. To resolve this, state needs to be stored in a cookie so its more gobally available.
+
+A demonstration component
+```rb
+class BoardListComponent < ViewComponent::Base
+  # Its got the juice!
+  include ViewComponent::Juice::Juicy
+
+  # We want to list the user's boards so we need to authenticate them.
+  # Juice will try to call a method `current_<name>` like what devise provides
+  # and will then make that available with the same method name
+  AUTHENTICATE = %i[user]
+
+  # Optional, but when you provide it, it will check that all the messages
+  # being sent are one of these
+  MESSAGES = %i[open close]
+
+  # This is called when first instanciated in a view and sets up the initial 
+  # component state
+  def setup(board_ids:)
+    @list_open = true
+
+    # For a production application it would be wise to use a scoped id or friendly
+    # ID as context is currently not encrypted in the client browser.
+    context['board_ids'] = board_ids
+  end
+
+  # This is called when the the component is going to be rendered again
+  def update(message)
+    # As setup is only called when its first rendered in the client,
+    # if we didn't set @list_open here, it would be undefined as juice recreates
+    # the component instance.
+    @list_open = message == :open
+  end
+
+  def boards
+    @boards ||= current_user.boards.where(context['board_ids'])
+  end
+end
+```
 
 ## Development
 
