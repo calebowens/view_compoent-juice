@@ -61,6 +61,25 @@ class BoardListComponent < ViewComponent::Base
 end
 ```
 
+```haml
+- # frame is provided by the concern and makes the <turbo-frame> tag with a unique ID
+= frame do
+  - if @list_open
+    .board-list
+      - # send_message generates a link to the juice controller which will do an update
+      - # cycle
+      = link_to 'Close', send_message(:close)
+      %p Boards:
+
+      - boards.each do |board|
+        = link_to board.name, board
+
+      %hr
+      = link_to 'Create new Board', new_board_path
+  - else
+    = link_to 'Open', send_message(:open), class: 'board-list__closed-button'
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
